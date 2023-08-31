@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GifService } from '../../../gifs/services/gif.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
-
+  public gifList:string[] = [];
+  constructor(private gifsService:GifService) { }
+  get gifsTags(){
+    return this.gifsService.tagsGif;
+  }
   ngOnInit(): void {
+
+    console.log(this.gifList);
+    
   }
 
 }
